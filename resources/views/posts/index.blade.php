@@ -25,7 +25,7 @@
         <tr>
             <th scope="row">{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
-            <td>{{ $post->description }}</td>
+            <td>{{ Str::limit($post->description, 70) }}</td>
             <td>{{ $post->author }}</td>
             <td class="table-buttons">
                 <a href="{{route('posts.show', $post)}}" class="btn btn-dark">
@@ -46,6 +46,5 @@
         @endforeach
         </tbody>
     </table>
-
-
+{{ $posts->links() }}
 @endsection

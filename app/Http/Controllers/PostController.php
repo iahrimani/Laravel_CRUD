@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Auth;
 use Illuminate\Http\Request;
+
+
 
 class PostController extends Controller
 {
@@ -34,16 +37,21 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
-//        dd($request);
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+
+
         ]);
+        # В какое поле таблицы БД, из какого поля формы, автора из сессии авторизации !
         $post = new Post([
-            'title' => $request->get('title'),
-            'description'=>$request->get('description'),
+            'title'          => $request->get('title'),
+            'description'    => $request->get('description'),
+            'author_id'      => Auth::id(),
         ]);
 
         $post->save();

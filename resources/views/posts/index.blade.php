@@ -26,7 +26,7 @@
             <th scope="row">{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ Str::limit($post->description, 70) }}</td>
-            <td>{{ $post->author }}</td>
+                <td><a href="{{ route('profile.index', ['id' => $post->author->id]) }}">{{ $post->author->username }}</a></td>
             <td class="table-buttons">
                 <a href="{{route('posts.show', $post)}}" class="btn btn-dark">
                     <i class="fa fa-eye"></i>

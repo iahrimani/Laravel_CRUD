@@ -3,5 +3,9 @@
 @section('title', 'Профиль пользователя' )
 
 @section('content')
-321321312
+<h3>Профиль пользователя</h3>
+
+{{ $id->username }}
+{{ $id->email }}
+
 @endsection

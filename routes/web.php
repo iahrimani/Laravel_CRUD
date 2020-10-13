@@ -40,4 +40,8 @@ Route::get('/signout', 'AuthController@getSignout')->middleware('guest')->name('
 # Список всех желаний
 Route::resource('posts', 'PostController')->middleware('auth');
 
+# Профили пользователей
 Route::get('/user/{id}', 'ProfileController@getProfile')->name('profile.index');
+
+Route::get('/profile/edit', 'ProfileController@getEdit')->middleware('auth')->name('profile.edit');
+Route::post('/profile/edit', 'ProfileController@postEdit')->middleware('auth')->name('profile.edit');

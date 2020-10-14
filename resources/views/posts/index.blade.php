@@ -9,6 +9,10 @@
         <div class="alert alert-success mt-3">
             {{ session()->get('success') }}
         </div>
+        @else
+        <div class="alert alert-danger mt-3">
+        {{ session()->get('danger') }}
+        </div>
     @endif
     <table class="table mt-4">
         <thead class="thead-dark">

@@ -116,6 +116,6 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
 
-        return redirect('posts')->with('success', 'Задача удалена !');
+        return redirect('posts')->with('danger', 'Задача удалена !');
     }
 }

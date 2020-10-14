@@ -55,7 +55,7 @@ class PostController extends Controller
         ]);
 
         $post->save();
-        return redirect('/posts')->with('success', 'Желание успешно добавлено');
+        return redirect('/posts')->with('success', 'Задача успешно добавлена');
     }
 
     /**
@@ -101,7 +101,7 @@ class PostController extends Controller
         $post->description = $request->get('description');
         $post->save();
 
-        return redirect('posts')->with('success', 'Желание отредактировано !');
+        return redirect('posts')->with('success', 'Задача отредактирована !');
 
     }
 
@@ -116,6 +116,6 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
 
-        return redirect('posts')->with('success', 'Желание удалено !');
+        return redirect('posts')->with('success', 'Задача удалена !');
     }
 }

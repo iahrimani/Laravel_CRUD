@@ -37266,6 +37266,13 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$(function () {
+  $('.alert-danger').fadeOut(3000);
+});
+$(function () {
+  $('.alert-success').fadeOut(3000);
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37331,8 +37338,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\OpenServer\domains\crud.local\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\OpenServer\domains\crud.local\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! e:\OpenServer\domains\magisk.local\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! e:\OpenServer\domains\magisk.local\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

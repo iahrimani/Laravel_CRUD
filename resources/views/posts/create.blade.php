@@ -17,14 +17,14 @@
             <form method="POST" action="{{ route('posts.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Чего желаете ?</label>
+                    <label for="title">Введите название задачи</label>
                     <input name="title" type="text" value="{{old('title')}}" class="form-control" id="title">
                 </div>
                 <div class="form-group">
                     <label for="post-description">Описание</label>
                     <textarea name="description" class="form-control" id="post-description" rows="5">{{old('description')}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-secondary">Добавить желание</button>
+                <button type="submit" class="btn btn-secondary">Добавить задачу</button>
             </form>
         </div>
     </div>

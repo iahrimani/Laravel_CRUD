@@ -18,7 +18,7 @@
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="title">Чего желаете ?</label>
+                    <label for="title">Введите задачу</label>
                     <input name="title" type="text" value="{{ $post->title }}" class="form-control" id="title">
                 </div>
                 <div class="form-group">

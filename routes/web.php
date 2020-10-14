@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('posts');
 });
 
 /*
@@ -37,11 +37,20 @@ Route::get('/signout', 'AuthController@getSignout')->middleware('guest')->name('
 */
 
 
-# Список всех желаний
+# Список всех задач, это рессурсный контроллер
 Route::resource('posts', 'PostController')->middleware('auth');
 
-# Профили пользователей
+/*
+Тут начинаются роуты профилей
+*/
+
+# Просмотр профиля пользователя
 Route::get('/user/{id}', 'ProfileController@getProfile')->name('profile.index');
 
+# Редактирование профиля пользователя
 Route::get('/profile/edit', 'ProfileController@getEdit')->middleware('auth')->name('profile.edit');
 Route::post('/profile/edit', 'ProfileController@postEdit')->middleware('auth')->name('profile.edit');
+
+/*
+Тут заканчиваются роуты профилей
+*/

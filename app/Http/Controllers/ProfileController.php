@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class ProfileController extends Controller
 {
     public function getProfile($id)
     {
         $id = User::where('id', $id)->first();
-//        dd($id);
 
         if (!$id){
             abort(404);
@@ -23,9 +23,23 @@ class ProfileController extends Controller
     	return view('profile.edit');
     }
 
-        public function postEdit()
+    public function postEdit(Request $request)
     {
-    	return view('profile.edit');
+    	$request->validate([
+    		'full_name' => 'max:30',
+    		'email' 	=> 'email',
+    		'age' 		=> 'integer',
+    	]);
+
+    	Auth::user()->update([
+    		'full_name' => $request->input('full_name'),
+    		'email' 	=> $request->input('email'),
+    		'age' 		=> $request->input('age'),
+    	]);
+
+    	return redirect()
+    	->route('profile.edit')
+    	->with('success', 'Профиль успешно обновлён !');
     }
 
 }

@@ -33,7 +33,7 @@
                     <a class="nav-link" href="{{ route('profile.edit')  }}">Обновить профиль</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('auth.signout')  }}">Выйти</a>
+                    <a class="nav-link" href="{{ route('auth.signout') }}">{{ Auth::user()->username }}, выйти</a>
                 </li>
                 @else
                 <li class="nav-item"><a class="nav-link" href="{{ route('auth.signup') }}">Зарегестрироваться</a>

@@ -72,11 +72,12 @@ class AuthController extends Controller
         // dd($user);
 
         $user = User::updateOrCreate([
-            'username' => $user->nickname, 
-            'full_name' => $user->name, 
+            'username' => $user->nickname,  
             'email' => $user->email, 
             ],
-            ['password' => Hash::make(Str::random(24)),]
+            ['password' => Hash::make(Str::random(24)),
+            'full_name' => $user->name,
+            ]
         );
 
         Auth::login($user, true);

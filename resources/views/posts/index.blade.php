@@ -20,6 +20,7 @@
             <th scope="col">Задача</th>
             <th scope="col">Описание</th>
             <th scope="col">Автор</th>
+            <th scope="col">Аватар</th>
             <th></th>
         </tr>
     </thead>
@@ -28,7 +29,13 @@
         <tr>
             <td>{{ $post->title }}</td>
             <td>{{ Str::limit($post->description, 70) }}</td>
+            
+            @if(!empty($post->author->username) == true)
             <td><a href="{{ route('profile.index', ['id' => $post->author_id]) }}">{{ $post->author->username }}</a></td>
+            @else
+            <td><b>{{ 'Удалён' }}</b></td>
+            @endif
+            <td><img src="" alt=""></td>    
             <td class="table-buttons">
                 <a href="{{route('posts.show', $post)}}" class="btn btn-dark">
                     <i class="fa fa-eye"></i>

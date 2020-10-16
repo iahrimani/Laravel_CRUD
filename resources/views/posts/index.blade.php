@@ -20,7 +20,6 @@
             <th scope="col">Задача</th>
             <th scope="col">Описание</th>
             <th scope="col">Автор</th>
-            <th scope="col">Аватар</th>
             <th></th>
         </tr>
     </thead>

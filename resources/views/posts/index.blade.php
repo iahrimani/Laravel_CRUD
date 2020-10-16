@@ -33,8 +33,7 @@
             <td><a href="{{ route('profile.index', ['id' => $post->author_id]) }}">{{ $post->author->username }}</a></td>
             @else
             <td><b>{{ 'Удалён' }}</b></td>
-            @endif
-            <td><img src="" alt=""></td>    
+            @endif 
             <td class="table-buttons">
                 <a href="{{route('posts.show', $post)}}" class="btn btn-dark">
                     <i class="fa fa-eye"></i>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Socialite;
+use Str;
+use Hash;
 
 class AuthController extends Controller
 {
@@ -55,6 +58,28 @@ class AuthController extends Controller
         }
         return redirect()->route('posts.index')->with('success', 'Вы вошли на сайт');
 
+    }
+
+    public function github()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+        public function githubRedirect()
+    {
+        $user = Socialite::driver('github')->user();
+
+        // dd($user);
+
+        $user = User::firstOrCreate([
+            'username' => $user->nickname, 
+            'full_name' => $user->name, 
+            'email' => $user->email, 
+            'password' => Hash::make(Str::random(24)), 
+        ]);
+
+        Auth::login($user, true);
+        return redirect('/posts');
     }
 
     # Выход

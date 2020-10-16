@@ -9,7 +9,7 @@
             <form method="POST" action="{{ route('auth.signin') }}" novalidate>
                 @csrf
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">E-mail</label>
                     <input type="email" name="email"
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : ''}}" id="email"
                            placeholder="Например, xyz@gmail.com"
@@ -38,9 +38,15 @@
                     <label class="custom-control-label" for="remember">Запомнить меня</label>
                 </div>
                 <button type="submit"
-                        class="btn btn-primary mt-2">
+                        class="btn btn-dark mt-2">
                     Войти
                 </button>
+                <div class="form-row mx-auto mt-2">
+                    <a href="{{ route('github') }}" 
+                    class="btn btn-dark">
+                        Войти через Git
+                    </a>
+                </div>
             </form>
         </div>
     </div>

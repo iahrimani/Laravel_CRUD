@@ -29,6 +29,10 @@ Route::post('/signup', 'AuthController@postSignup');
 Route::get('/signin', 'AuthController@getSignin')->middleware('guest')->name('auth.signin');
 Route::post('/signin', 'AuthController@postSignin');
 
+# Вход через Github
+Route::get('/signin/github', 'AuthController@github')->name('github');
+Route::get('/signin/github/redirect', 'AuthController@githubRedirect')->name('github.redirect');
+
 # Выход
 Route::get('/signout', 'AuthController@getSignout')->middleware('guest')->name('auth.signout');
 

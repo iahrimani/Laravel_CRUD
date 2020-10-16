@@ -71,12 +71,13 @@ class AuthController extends Controller
 
         // dd($user);
 
-        $user = User::firstOrCreate([
+        $user = User::updateOrCreate([
             'username' => $user->nickname, 
             'full_name' => $user->name, 
             'email' => $user->email, 
-            'password' => Hash::make(Str::random(24)), 
-        ]);
+            ],
+            ['password' => Hash::make(Str::random(24)),]
+        );
 
         Auth::login($user, true);
         return redirect('/posts');
